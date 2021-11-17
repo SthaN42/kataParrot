@@ -2,15 +2,15 @@ package fr.unilim.iut.kataparrot;
 
 public class AfricanParrot extends Parrot {
 
-	protected int numberOfCoconuts = 0;
+	private static final double COCONUT_WEIGHT = 9.0;
+	private int numberOfCoconuts;
 
 	public AfricanParrot(int numberOfCoconuts) {
-		super(ParrotTypeEnum.AFRICAN, 0, false);
 		this.numberOfCoconuts = numberOfCoconuts;
 	}
 
 	@Override
 	public double getSpeed() {
-		return Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
+		return Math.max(MINIMUM_SPEED, BASE_SPEED - COCONUT_WEIGHT * numberOfCoconuts);
 	}
 }
